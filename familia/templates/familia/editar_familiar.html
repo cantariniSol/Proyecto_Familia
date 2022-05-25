@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Editar intengrante {% endblock %}
+
+{% block contenido %}
+
+<div class="card bg-dark text-white">
+    <div class="card-header">
+        <h4 class="card-title">Editar integrante de la familia</h4>
+    </div>
+
+    <div class="card-body">
+        {% include 'familia/form.html' %}
+    </div>
+
+    <div class="card-footer text-muted">
+    </div>
+</div>
+
+{% endblock %}

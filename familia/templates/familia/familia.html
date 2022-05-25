@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Familia {% endblock %}
+
+{% block contenido %}
+<div class="card bg-dark text-white">
+    <div class="card-header">
+        <h4 class="card-title">Integrantes de la familia</h4>
+    </div>
+    <div class="card-body">
+        <a name="" id="" class="btn btn-warning" href="{% url 'crear_familiar' %}" role="button" style="margin-bottom:20px">Crear nuevo integrante</a>
+        <table class="table table-dark table-striped">
+            <thead>
+                <!--COLUMNAS-->
+                <tr>
+                    <th>NOMBRE</th>
+                    <th>APELLIDO</th>
+                    <th>NACIMIENTO</th>
+                    <th>EDAD</th>
+                    <th>EMAIL</th>
+                    <th>TELEFONO</th>
+                    <th>DIRECCIÓN</th>
+                    <th>IMAGEN</th>
+                    <th>ACCIONES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!--REGISTROS-->
+                {% for integrante in familia %}
+                <tr>
+                    <td>{{integrante.nombre}}</td>
+                    <td>{{integrante.apellido}}</td>
+                    <td>{{integrante.fecha_nacimiento}}</td>
+                    <td>{{integrante.edad}}</td>
+                    <td>{{integrante.email}}</td>
+                    <td>{{integrante.telefono}}</td>
+                    <td>{{integrante.direccion}}</td>
+                    <td><img src="{{integrante.imagen.url}}" alt="Imagen:{{integrante.nombre}}" height="100"></td>
+                    <td>
+                        <a name="" id="" class="btn btn-success" href=" {% url 'editar_familiar' integrante.id %}" role="button"
+                            style="margin: 3px">Editar</a>
+        
+                        <a name="" id="" class="btn btn-danger" href="{% url 'borrar_familiar' integrante.id %}" role="button"
+                            style="margin: 3px">Borrar</a>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="card-footer text-muted">
+    </div>
+</div>
+
+{% endblock %}

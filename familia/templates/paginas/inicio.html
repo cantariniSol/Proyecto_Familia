@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block titulo %} Inicio {% endblock %}
+
+{% block contenido %}
+<!--bs5-jumbotron-->
+<div class="p-5 bg-dark" style="color:rgb(235, 225, 214); border-radius: 15px;">
+    <div class="container">
+        <h1 class="display-3">¡¡Hola te damos la bienvenida!!</h1>
+        <p class="lead" style="font-size:25px">¿Te gustaría conocer mi familia?</p>
+        <hr class="my-2">
+        <p class="lead">
+            <a class="btn btn-warning btn-lg" href="{% url 'familia' %}" role="button">Empezar</a>
+        </p>
+    </div>
+</div>
+{% endblock %}
