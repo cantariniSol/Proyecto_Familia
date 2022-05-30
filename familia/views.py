@@ -1,6 +1,7 @@
 from django.shortcuts import redirect, render
 from .models import Familia
 from .forms import FamiliaForm
+from datetime import datetime
 # Create your views here.
 
 #Vista Inicio
@@ -15,6 +16,7 @@ def familia(request):
 
 def crear_familiar(request):
     formulario = FamiliaForm(request.POST or None, request.FILES or None)
+    
     if formulario.is_valid():
         formulario.save()
         return redirect('familia')

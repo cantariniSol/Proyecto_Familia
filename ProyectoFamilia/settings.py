@@ -105,11 +105,13 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.0/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+#DATE_INPUT_FORMATS = '%Y-%m-%d'
 
-TIME_ZONE = 'UTC'
+LANGUAGE_CODE = 'es-AR'
 
-USE_I18N = True
+TIME_ZONE = 'America/Argentina/Cordoba'
+
+USE_I18N = False
 
 USE_TZ = True
 

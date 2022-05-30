@@ -1,35 +1,35 @@
-<form enctype="multipart/form-data" method="post" >
-    <!--LAVE DEL FORMULARIO-->
-    {% csrf_token %}
-
-    {% for campo in formulario %}
-    <div class="mb-3" >
-        <label for="" class="form-label">{{campo.label}}</label>
-
+<center>
+ <form enctype="multipart/form-data" method="post">
+<!--LAVE DEL FORMULARIO-->
+{% csrf_token %}
+{% for campo in formulario %}
+    <div class="form-group">
+        <label for="" class="col-sm-6 col-form-label" style="font-size:18px; text-align: left">{{campo.label}}</label>
         {% if campo.field.widget.input_type == 'file' and campo.value %}
         <br>
-        <img src="{{MEDIA_URL}}/imagenes/{{campo.value}}" width="100" height="100" alt="Imagen de familiar"
+        <img src="{{MEDIA_URL}}/imagenes/{{campo.value}}" style="width:10%; height:15%" alt="Imagen de familiar"
             style="border-radius: 10px; margin-bottom: 10px">
         <br>
         {% endif%}
-
-        
-        <input 
-            type="{{campo.field.widget.input_type}}" 
-            class="form-control" 
-            name="{{campo.name}}" 
-            id="" 
-            aria-describedby="helpId" 
-            placeholder="{{ campo.label}}"
-            value="{{campo.value | default:' '}}" 
-        />
-        
+        <div class="col-sm-6 ">
+            {{campo}}
+        </div>
+        <!-- <div class="col-sm-6 alert-danger" style="border-radius:10px; margin-top: 3px; text-align: left">
+           {{campo.errors}}
+        </div> -->
     </div>
+       
+     
+    
+{% endfor %}
+<br>
+<input name="" id="" class="btn btn-lg btn-success" type="submit" value="Guardar" style="margin-right:10px; padding:6px 35px">
+<a name="" id="" class="btn  btn-lg  btn-danger" href="{% url 'familia' %}" role="button"
+    style="margin-right:10px; padding:6px 35px">Cancelar</a>
+</form>   
+</center>
 
-    <div class="col-2 alert-warning" style="border-radius:10px"> {{campo.errors}} </div>
-
-    {% endfor %}
-
-    <input name="" id="" class="btn btn-success" type="submit" value="Guardar" style="margin-right:10px; padding:6px 35px">
-    <a name="" id="" class="btn btn-danger" href="{% url 'familia' %}" role="button" style="margin-right:10px; padding:6px 35px">Cancelar</a>
-</form>
+    
+    
+    
+    

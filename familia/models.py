@@ -6,11 +6,11 @@ class Familia(models.Model):
     id = models.AutoField(primary_key=True)
     nombre = models.CharField(max_length=45, verbose_name='Nombre')
     apellido = models.CharField(max_length=45, verbose_name='Apellido')
-    fecha_nacimiento = models.DateField(verbose_name='fecha de nacimiento AAAA-MM-DD')
+    fecha_nacimiento = models.DateField(verbose_name='Fecha de nacimiento')
     edad = models.IntegerField(verbose_name='Edad')
     email = models.EmailField(verbose_name='Email')
-    telefono = models.CharField(max_length=16, verbose_name='Telefono')
-    direccion = models.CharField(max_length=60, verbose_name='Direccion')
+    telefono = models.CharField(max_length=16, verbose_name='Teléfono')
+    direccion = models.CharField(max_length=60, verbose_name='Dirección')
     imagen = models.ImageField(upload_to='imagenes/', null=True)
     
     # Configuaración para mostrar la información en el administrador
